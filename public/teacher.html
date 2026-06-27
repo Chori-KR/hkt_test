@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>선생님 대시보드</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <!-- 비밀번호 인증 영역 -->
+  <div class="container" id="loginArea">
+    <h2>👩‍🏫 선생님 대시보드 접근</h2>
+    <p style="text-align: center; margin-bottom: 2rem;">학생들의 일기를 확인하기 위해 비밀번호를 입력해주세요.</p>
+    
+    <div class="form-group">
+      <input type="password" id="teacherPassword" placeholder="비밀번호 입력">
+    </div>
+    <button id="loginBtn" class="btn">대시보드 열기</button>
+    <div id="loginError" class="message error hidden"></div>
+    <button onclick="location.href='index.html'" class="btn btn-secondary" style="border: none; color: var(--text-muted); margin-top: 1rem;">처음으로 돌아가기</button>
+  </div>
+
+  <!-- 대시보드 메인 영역 (로그인 후 표시) -->
+  <div class="container dashboard-container hidden" id="dashboardArea">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+      <h2 style="margin: 0;">📊 우리 반 마음 일기장 현황</h2>
+      <div>
+        <button id="refreshBtn" class="btn" style="width: auto; margin-top: 0; padding: 0.5rem 1rem;">🔄 새로고침</button>
+        <button onclick="location.reload()" class="btn btn-secondary" style="width: auto; margin-top: 0; padding: 0.5rem 1rem;">로그아웃</button>
+      </div>
+    </div>
+
+    <!-- 통계 카드 표시 영역 -->
+    <div class="stats-container" id="statsContainer">
+      <div class="stat-card">
+        <div style="color: var(--text-muted); margin-bottom: 0.5rem;">총 일기 수</div>
+        <div class="stat-value" id="totalDiaries">0</div>
+      </div>
+      <div class="stat-card">
+        <div style="color: var(--text-muted); margin-bottom: 0.5rem;">최근 활동</div>
+        <div class="stat-value" id="recentActivity" style="font-size: 1.2rem; display: flex; align-items: center; justify-content: center; height: 100%;">-</div>
+      </div>
+    </div>
+
+    <h3 style="text-align: left; margin-bottom: 1rem; border-bottom: 2px solid #e5e7eb; padding-bottom: 0.5rem;">📝 학생 일기 목록</h3>
+    
+    <div id="dashboardError" class="message error hidden"></div>
+    
+    <!-- 일기 리스트 렌더링 영역 -->
+    <div id="diaryList" class="diary-list">
+      <!-- 자바스크립트를 통해 데이터가 여기에 추가됩니다 -->
+      <div style="text-align: center; color: var(--text-muted); padding: 2rem;">일기 데이터를 불러오는 중...</div>
+    </div>
+  </div>
+
+  <script src="teacher.js"></script>
+</body>
+</html>
