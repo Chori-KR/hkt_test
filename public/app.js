@@ -1,3 +1,7 @@
+// 향후 Render 등에 백엔드 배포 시, 아래 변수에 백엔드 주소를 입력하세요.
+// (예: const BACKEND_URL = 'https://my-backend-app.onrender.com';)
+const BACKEND_URL = '';
+
 document.addEventListener('DOMContentLoaded', () => {
   const submitBtn = document.getElementById('submitBtn');
   const studentNameInput = document.getElementById('studentName');
@@ -30,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       // 3. 서버(백엔드)로 데이터 전송 및 AI 응답 요청
-      const response = await fetch('/api/diaries', {
+      const response = await fetch(BACKEND_URL + '/api/diaries', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

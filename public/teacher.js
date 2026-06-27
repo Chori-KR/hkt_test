@@ -1,3 +1,6 @@
+// 향후 Render 등에 백엔드 배포 시, 아래 변수에 백엔드 주소를 입력하세요.
+const BACKEND_URL = '';
+
 document.addEventListener('DOMContentLoaded', () => {
   const loginArea = document.getElementById('loginArea');
   const dashboardArea = document.getElementById('dashboardArea');
@@ -23,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       // 서버에 로그인 인증 요청
-      const response = await fetch('/api/login', {
+      const response = await fetch(BACKEND_URL + '/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ password })
@@ -61,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     dashboardError.classList.add('hidden');
     
     try {
-      const response = await fetch('/api/diaries');
+      const response = await fetch(BACKEND_URL + '/api/diaries');
       const diaries = await response.json();
       
       if (!response.ok) {
